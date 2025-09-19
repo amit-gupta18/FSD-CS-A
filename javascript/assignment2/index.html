@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .container {
+            height: 500px;
+            width: 600px;
+            margin: auto;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        #slider {
+            text-align: center;
+            padding: 10px;
+        }
+
+        img {
+            border-radius: 10px;
+
+        }
+
+        button {
+            height: 30px;
+            width: 80px;
+            border-radius: 8px;
+            margin: 10px;
+            background-color: green;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            padding-right: 30px;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            border-radius: 100%;
+            margin-left: 20px;
+        }  
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"></div>
+            <h2>Counter App</h2>
+        </div>
+        <div id="slider">
+
+            <img id="image" src="img1.png" alt="Image Slider" height="300px" width="500px">
+            <br>
+            <button onclick="previousImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = ["./img1.png", "./img2.jpg", "./img3.jpg"];
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById("image");
+            imageElement.src = images[index];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function previousImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+    </script>
+</body>
+
+</html>
