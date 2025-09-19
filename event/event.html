@@ -16,7 +16,10 @@
 </head>
 <body>
     <div id="adi">
-        <button onclick="abes()">Click</button>
+        <!-- <button onclick="abes()">Click</button> -->
+        <button onclick="red()">RED</button>
+        <button onclick="green()">GREEN</button>
+        <button onclick="blue()">BLUE</button>
         <p id="aaa"></p>
     </div>
 
@@ -24,6 +27,15 @@
         function abes() {
             const textblock = document.getElementById("aaa");
             textblock.innerText = "Hello world!";
+        }
+        function red(){
+            document.getElementById("adi").style.backgroundColor="red"
+        }
+        function green(){
+            document.getElementById("adi").style.backgroundColor="green"
+        }
+        function blue(){
+            document.getElementById("adi").style.backgroundColor="blue"
         }
     </script>
 </body>
