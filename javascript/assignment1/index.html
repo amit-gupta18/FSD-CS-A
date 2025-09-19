@@ -1,0 +1,125 @@
+<!-- design a card using css  
+on the top left corner of the card add a circle[for layout](logo of the card)
+ont the top right hand side write counter app 
+then in the middle of the card write a number 0
+below the number add two buttons + and -
+when the user clicks on + the number should increase by 1
+when the user clicks on - the number should decrease by 1
+the max limit is 10 and the min limit is 0
+message container ( showing the max limit reached or min limit reached) -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        .container{
+            padding: 20px;
+            width: 200px;
+            height: 300px;
+            border: 2px dotted black;
+            border-radius: 20px;
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border-radius: 100%;
+        }
+        .counter-display{
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .buttons{
+            margin-top: 20px;
+            text-align: center;
+
+        }
+
+        .buttons button{
+            background-color: rgb(126, 126, 236);
+            height: 40px;
+            width: 80px;
+            border-radius: 8px;
+        }
+        .message-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top:40px;
+        }
+        #message{
+            color:red;  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="logo"></div>
+                <h2>Counter App</h2>
+            </div>
+            <div class="counter-display">
+                <span id="counter-value">0</span>
+            </div>
+            <div class="buttons">
+                <button onclick="decrement()" id="decrement-btn">-</button>
+                <button onclick="increment()" id="increment-btn">+</button>
+            </div>
+            <div class="message-container">
+                <p id="message"></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let counter = 0;
+        let value = document.getElementById('counter-value').innerText
+        let message = document.getElementById('message').innerText
+        // console.log("value and messages is :" , value , message);
+
+        function increment(){
+            // console.log("increment function called")
+            // console.log("counter is : " , counter)
+            if(counter == 10){
+                checklimit();
+                return;
+            }
+            counter++;
+            document.getElementById('counter-value').innerText = counter;
+            document.getElementById('message').innerText = ""
+        }
+
+        function decrement(){
+            if(counter == 0){
+                checklimit();
+                return;
+            }
+            counter--;
+            document.getElementById('counter-value').innerText = counter;
+            document.getElementById('message').innerText = ""
+        }
+
+        function checklimit(){
+            if(counter == 10){
+                document.getElementById('message').innerText = "maximum value already reached"
+            }else{
+                document.getElementById('message').innerText = "minimum value already reached"
+            }
+            return ;
+        }
+
+    </script>
+
+</body>
+</html>
