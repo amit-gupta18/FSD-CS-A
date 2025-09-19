@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event listeners</title>
+    <style>
+        #adi{
+            height: 300px;
+            width: 300px;
+            border: 5px solid red;
+            background-color: brown;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="adi">
+        <button onclick="abes()">Click</button>
+        <p id="aaa"></p>
+    </div>
+
+    <script>
+        function abes() {
+            const textblock = document.getElementById("aaa");
+            textblock.innerText = "Hello world!";
+        }
+    </script>
+</body>
+</html>
