@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Dom</title>
+</head>
+
+<body>
+    <table style="background-color: yellow;" border="2px">
+        <tbody>
+            <tr>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>IP</th>
+                <th>Mac Address</th>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        // fetch form dummy json api . and display the data in table format
+        async function fetchData() {
+            const url = 'https://dummyjson.com/users?limit=4';
+            const res = await fetch(url);
+            const jsondata = await res.json();
+            jsondata.users.forEach(user => {
+                const table = document.querySelector('table tbody');
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td>${user.firstName}</td>
+            <td>${user.email}</td>
+            <td>${user.ip}</td>
+            <td>${user.macAddress}</td>
+            `;
+                table.appendChild(row);
+            });
+        }
+        fetchData();
+
+    </script>
+
+</body>
+
+</html>
