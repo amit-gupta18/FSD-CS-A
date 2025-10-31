@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.app{
+  font-size: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
